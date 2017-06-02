@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.instanza.i18nmanager.mapper.I18nItemMapper">
+
+	<select id="queryItemList" parameterType="Map" resultType="com.instanza.i18nmanager.entity.I18nItem">
+		select * from `i18n_item`
+		where 1=1
+        <if test="param.id != null">and id = #{param.id}</if>
+        <if test="param.android_formatted != null">and android_formatted = #{param.android_formatted}</if>
+		<if test="param.source_key != null">and source_key like CONCAT('%',#{param.source_key},'%')</if>
+        <if test="param.android_key != null">and android_key like CONCAT('%',#{param.android_key},'%')</if>
+        <if test="param.ios_key != null">and ios_key like CONCAT('%',#{param.ios_key},'%')</if>
+        <if test="param.projects != null">and projects like CONCAT('%',#{param.projects},'%')</if>
+        <if test="param.value_en != null">and value_en like CONCAT('%',#{param.value_en},'%')</if>
+        <if test="param.value_ar != null">and value_ar like CONCAT('%',#{param.value_ar},'%')</if>
+        <if test="param.value_es != null">and value_es like CONCAT('%',#{param.value_es},'%')</if>
+        <if test="param.value_pt != null">and value_pt like CONCAT('%',#{param.value_pt},'%')</if>
+        <if test="param.value_ru != null">and value_ru like CONCAT('%',#{param.value_ru},'%')</if>
+        <if test="param.value_pl != null">and value_pl like CONCAT('%',#{param.value_pl},'%')</if>
+        <if test="param.value_fa != null">and value_fa like CONCAT('%',#{param.value_fa},'%')</if>
+        <if test="param.value_zh != null">and value_zh like CONCAT('%',#{param.value_zh},'%')</if>
+        <if test="param.value_ms != null">and value_ms like CONCAT('%',#{param.value_ms},'%')</if>
+        <if test="param.value_nl != null">and value_nl like CONCAT('%',#{param.value_nl},'%')</if>
+        <if test="param.value_th != null">and value_th like CONCAT('%',#{param.value_th},'%')</if>
+        <if test="param.value_tr != null">and value_tr like CONCAT('%',#{param.value_tr},'%')</if>
+        <if test="param.value_uk != null">and value_uk like CONCAT('%',#{param.value_uk},'%')</if>
+        <if test="param.value_vi != null">and value_vi like CONCAT('%',#{param.value_vi},'%')</if>
+        <if test="param.value_fr != null">and value_fr like CONCAT('%',#{param.value_fr},'%')</if>
+        <if test="param.value_de != null">and value_de like CONCAT('%',#{param.value_de},'%')</if>
+        <if test="param.value_it != null">and value_it like CONCAT('%',#{param.value_it},'%')</if>
+        <if test="param.value_ja != null">and value_ja like CONCAT('%',#{param.value_ja},'%')</if>
+        <if test="param.value_hi != null">and value_hi like CONCAT('%',#{param.value_hi},'%')</if>
+        <if test="param.value_hu != null">and value_hu like CONCAT('%',#{param.value_hu},'%')</if>
+        <if test="param.value_id != null">and value_id like CONCAT('%',#{param.value_id},'%')</if>
+        <if test="param.value_ko != null">and value_ko like CONCAT('%',#{param.value_ko},'%')</if>
+        <if test="param.value_nb != null">and value_nb like CONCAT('%',#{param.value_nb},'%')</if>
+        <if test="param.value_ca != null">and value_ca like CONCAT('%',#{param.value_ca},'%')</if>
+        <if test="param.value_hr != null">and value_hr like CONCAT('%',#{param.value_hr},'%')</if>
+        <if test="param.value_cs != null">and value_cs like CONCAT('%',#{param.value_cs},'%')</if>
+        <if test="param.value_da != null">and value_da like CONCAT('%',#{param.value_da},'%')</if>
+        <if test="param.value_fi != null">and value_fi like CONCAT('%',#{param.value_fi},'%')</if>
+        <if test="param.value_el != null">and value_el like CONCAT('%',#{param.value_el},'%')</if>
+        <if test="param.value_he != null">and value_he like CONCAT('%',#{param.value_he},'%')</if>
+        <if test="param.value_ro != null">and value_ro like CONCAT('%',#{param.value_ro},'%')</if>
+        <if test="param.value_sk != null">and value_sk like CONCAT('%',#{param.value_sk},'%')</if>
+        order BY source_key ASC
+        limit #{param.limitStart} ,  #{param.limitSize}
+	</select>
+
+	
+	<select id="queryItemListCount" resultType="Integer" parameterType="Map">
+		select count(0) from `i18n_item` WHERE 1=1
+        <if test="param.id != null">and id = #{param.id}</if>
+        <if test="param.android_formatted != null">and android_formatted = #{param.android_formatted}</if>
+        <if test="param.source_key != null">and source_key like CONCAT('%',#{param.source_key},'%')</if>
+        <if test="param.android_key != null">and android_key like CONCAT('%',#{param.android_key},'%')</if>
+        <if test="param.ios_key != null">and ios_key like CONCAT('%',#{param.ios_key},'%')</if>
+        <if test="param.projects != null">and projects like CONCAT('%',#{param.projects},'%')</if>
+        <if test="param.value_en != null">and value_en like CONCAT('%',#{param.value_en},'%')</if>
+        <if test="param.value_ar != null">and value_ar like CONCAT('%',#{param.value_ar},'%')</if>
+        <if test="param.value_es != null">and value_es like CONCAT('%',#{param.value_es},'%')</if>
+        <if test="param.value_pt != null">and value_pt like CONCAT('%',#{param.value_pt},'%')</if>
+        <if test="param.value_ru != null">and value_ru like CONCAT('%',#{param.value_ru},'%')</if>
+        <if test="param.value_pl != null">and value_pl like CONCAT('%',#{param.value_pl},'%')</if>
+        <if test="param.value_fa != null">and value_fa like CONCAT('%',#{param.value_fa},'%')</if>
+        <if test="param.value_zh != null">and value_zh like CONCAT('%',#{param.value_zh},'%')</if>
+        <if test="param.value_ms != null">and value_ms like CONCAT('%',#{param.value_ms},'%')</if>
+        <if test="param.value_nl != null">and value_nl like CONCAT('%',#{param.value_nl},'%')</if>
+        <if test="param.value_th != null">and value_th like CONCAT('%',#{param.value_th},'%')</if>
+        <if test="param.value_tr != null">and value_tr like CONCAT('%',#{param.value_tr},'%')</if>
+        <if test="param.value_uk != null">and value_uk like CONCAT('%',#{param.value_uk},'%')</if>
+        <if test="param.value_vi != null">and value_vi like CONCAT('%',#{param.value_vi},'%')</if>
+        <if test="param.value_fr != null">and value_fr like CONCAT('%',#{param.value_fr},'%')</if>
+        <if test="param.value_de != null">and value_de like CONCAT('%',#{param.value_de},'%')</if>
+        <if test="param.value_it != null">and value_it like CONCAT('%',#{param.value_it},'%')</if>
+        <if test="param.value_ja != null">and value_ja like CONCAT('%',#{param.value_ja},'%')</if>
+        <if test="param.value_hi != null">and value_hi like CONCAT('%',#{param.value_hi},'%')</if>
+        <if test="param.value_hu != null">and value_hu like CONCAT('%',#{param.value_hu},'%')</if>
+        <if test="param.value_id != null">and value_id like CONCAT('%',#{param.value_id},'%')</if>
+        <if test="param.value_ko != null">and value_ko like CONCAT('%',#{param.value_ko},'%')</if>
+        <if test="param.value_nb != null">and value_nb like CONCAT('%',#{param.value_nb},'%')</if>
+        <if test="param.value_ca != null">and value_ca like CONCAT('%',#{param.value_ca},'%')</if>
+        <if test="param.value_hr != null">and value_hr like CONCAT('%',#{param.value_hr},'%')</if>
+        <if test="param.value_cs != null">and value_cs like CONCAT('%',#{param.value_cs},'%')</if>
+        <if test="param.value_da != null">and value_da like CONCAT('%',#{param.value_da},'%')</if>
+        <if test="param.value_fi != null">and value_fi like CONCAT('%',#{param.value_fi},'%')</if>
+        <if test="param.value_el != null">and value_el like CONCAT('%',#{param.value_el},'%')</if>
+        <if test="param.value_he != null">and value_he like CONCAT('%',#{param.value_he},'%')</if>
+        <if test="param.value_ro != null">and value_ro like CONCAT('%',#{param.value_ro},'%')</if>
+        <if test="param.value_sk != null">and value_sk like CONCAT('%',#{param.value_sk},'%')</if>
+	</select>
+
+
+
+    <select id="queryCountBySourceKey" resultType="Integer" parameterType="Map">
+        select count(0) from `i18n_item` WHERE 1=1
+        <if test="param.source_key != null">and source_key = #{param.source_key}</if>
+</select>
+
+
+    <select id="queryBySourceKey"  parameterType="Map" resultType="com.instanza.i18nmanager.entity.I18nItem">
+        select * from `i18n_item` WHERE 1=1
+        <if test="param.source_key != null">and source_key = #{param.source_key}</if>
+    </select>
+
+
+	
+	<insert id="addItem" parameterType="com.instanza.i18nmanager.entity.I18nItem" useGeneratedKeys="true" keyProperty="id">
+        insert into `i18n_item`
+        (
+           `created`,
+           `updated`,
+            source_key,
+            android_key,
+            android_formatted,
+            ios_key,
+            projects,
+            value_en,
+            value_ar,
+            value_es,
+            value_pt,
+            value_ru,
+            value_pl,
+            value_fa,
+            value_zh,
+            value_ms,
+            value_nl,
+            value_th,
+            value_tr,
+            value_uk,
+            value_vi,
+            value_fr,
+            value_de,
+            value_it,
+            value_ja,
+            value_hi,
+            value_hu,
+            value_id,
+            value_ko,
+            value_nb,
+            value_ca,
+            value_hr,
+            value_cs,
+            value_da,
+            value_fi,
+            value_el,
+            value_he,
+            value_ro,
+            value_sk
+        )
+        values 
+        (
+            unix_timestamp()*1000,
+            unix_timestamp()*1000,
+            #{source_key},
+            #{android_key},
+            #{android_formatted},
+            #{ios_key},
+            #{projects},
+            #{value_en},
+            #{value_ar},
+            #{value_es},
+            #{value_pt},
+            #{value_ru},
+            #{value_pl},
+            #{value_fa},
+            #{value_zh},
+            #{value_ms},
+            #{value_nl},
+            #{value_th},
+            #{value_tr},
+            #{value_uk},
+            #{value_vi},
+            #{value_fr},
+            #{value_de},
+            #{value_it},
+            #{value_ja},
+            #{value_hi},
+            #{value_hu},
+            #{value_id},
+            #{value_ko},
+            #{value_nb},
+            #{value_ca},
+            #{value_hr},
+            #{value_cs},
+            #{value_da},
+            #{value_fi},
+            #{value_el},
+            #{value_he},
+            #{value_ro},
+            #{value_sk}
+        )
+    </insert>
+    
+    <update id="updateItem" parameterType="Map">
+		update i18n_item
+        <set>
+            <if test="param.source_key != null">source_key = #{param.source_key},</if>
+            <if test="param.android_key != null">android_key = #{param.android_key},</if>
+            <if test="param.android_formatted != null">android_formatted = #{param.android_formatted},</if>
+            <if test="param.ios_key != null">ios_key = #{param.ios_key},</if>
+            <if test="param.projects != null">projects = #{param.projects},</if>
+            <if test="param.value_en != null">value_en = #{param.value_en},</if>
+            <if test="param.value_ar != null">value_ar = #{param.value_ar},</if>
+            <if test="param.value_es != null">value_es = #{param.value_es},</if>
+            <if test="param.value_pt != null">value_pt = #{param.value_pt},</if>
+            <if test="param.value_ru != null">value_ru = #{param.value_ru},</if>
+            <if test="param.value_pl != null">value_pl = #{param.value_pl},</if>
+            <if test="param.value_fa != null">value_fa = #{param.value_fa},</if>
+            <if test="param.value_zh != null">value_zh = #{param.value_zh},</if>
+            <if test="param.value_ms != null">value_ms = #{param.value_ms},</if>
+            <if test="param.value_nl != null">value_nl = #{param.value_nl},</if>
+            <if test="param.value_th != null">value_th = #{param.value_th},</if>
+            <if test="param.value_tr != null">value_tr = #{param.value_tr},</if>
+            <if test="param.value_uk != null">value_uk = #{param.value_uk},</if>
+            <if test="param.value_vi != null">value_vi = #{param.value_vi},</if>
+            <if test="param.value_fr != null">value_fr = #{param.value_fr},</if>
+            <if test="param.value_de != null">value_de = #{param.value_de},</if>
+            <if test="param.value_it != null">value_it = #{param.value_it},</if>
+            <if test="param.value_ja != null">value_ja = #{param.value_ja},</if>
+            <if test="param.value_hi != null">value_hi = #{param.value_hi},</if>
+            <if test="param.value_hu != null">value_hu = #{param.value_hu},</if>
+            <if test="param.value_id != null">value_id = #{param.value_id},</if>
+            <if test="param.value_ko != null">value_ko = #{param.value_ko},</if>
+            <if test="param.value_nb != null">value_nb = #{param.value_nb},</if>
+            <if test="param.value_ca != null">value_ca = #{param.value_ca},</if>
+            <if test="param.value_hr != null">value_hr = #{param.value_hr},</if>
+            <if test="param.value_cs != null">value_cs = #{param.value_cs},</if>
+            <if test="param.value_da != null">value_da = #{param.value_da},</if>
+            <if test="param.value_fi != null">value_fi = #{param.value_fi},</if>
+            <if test="param.value_el != null">value_el = #{param.value_el},</if>
+            <if test="param.value_he != null">value_he = #{param.value_he},</if>
+            <if test="param.value_ro != null">value_ro = #{param.value_ro},</if>
+            <if test="param.value_sk != null">value_sk = #{param.value_sk},</if>
+            updated = unix_timestamp()*1000
+        </set>
+        where id = #{param.id}
+    </update>
+
+    <update id="updateItemBySourceKey" parameterType="Map">
+        update i18n_item
+        <set>
+            <if test="param.android_key != null">android_key = #{param.android_key},</if>
+            <if test="param.android_formatted != null">android_formatted = #{param.android_formatted},</if>
+            <if test="param.ios_key != null">ios_key = #{param.ios_key},</if>
+            <if test="param.projects != null">projects = #{param.projects},</if>
+            <if test="param.value_en != null">value_en = #{param.value_en},</if>
+            <if test="param.value_ar != null">value_ar = #{param.value_ar},</if>
+            <if test="param.value_es != null">value_es = #{param.value_es},</if>
+            <if test="param.value_pt != null">value_pt = #{param.value_pt},</if>
+            <if test="param.value_ru != null">value_ru = #{param.value_ru},</if>
+            <if test="param.value_pl != null">value_pl = #{param.value_pl},</if>
+            <if test="param.value_fa != null">value_fa = #{param.value_fa},</if>
+            <if test="param.value_zh != null">value_zh = #{param.value_zh},</if>
+            <if test="param.value_ms != null">value_ms = #{param.value_ms},</if>
+            <if test="param.value_nl != null">value_nl = #{param.value_nl},</if>
+            <if test="param.value_th != null">value_th = #{param.value_th},</if>
+            <if test="param.value_tr != null">value_tr = #{param.value_tr},</if>
+            <if test="param.value_uk != null">value_uk = #{param.value_uk},</if>
+            <if test="param.value_vi != null">value_vi = #{param.value_vi},</if>
+            <if test="param.value_fr != null">value_fr = #{param.value_fr},</if>
+            <if test="param.value_de != null">value_de = #{param.value_de},</if>
+            <if test="param.value_it != null">value_it = #{param.value_it},</if>
+            <if test="param.value_ja != null">value_ja = #{param.value_ja},</if>
+            <if test="param.value_hi != null">value_hi = #{param.value_hi},</if>
+            <if test="param.value_hu != null">value_hu = #{param.value_hu},</if>
+            <if test="param.value_id != null">value_id = #{param.value_id},</if>
+            <if test="param.value_ko != null">value_ko = #{param.value_ko},</if>
+            <if test="param.value_nb != null">value_nb = #{param.value_nb},</if>
+            <if test="param.value_ca != null">value_ca = #{param.value_ca},</if>
+            <if test="param.value_hr != null">value_hr = #{param.value_hr},</if>
+            <if test="param.value_cs != null">value_cs = #{param.value_cs},</if>
+            <if test="param.value_da != null">value_da = #{param.value_da},</if>
+            <if test="param.value_fi != null">value_fi = #{param.value_fi},</if>
+            <if test="param.value_el != null">value_el = #{param.value_el},</if>
+            <if test="param.value_he != null">value_he = #{param.value_he},</if>
+            <if test="param.value_ro != null">value_ro = #{param.value_ro},</if>
+            <if test="param.value_sk != null">value_sk = #{param.value_sk},</if>
+            updated = unix_timestamp()*1000
+        </set>
+        where source_key = #{param.source_key}
+    </update>
+	
+	<delete id="deleteItem" parameterType="Long">
+		delete from i18n_item where id = #{item_id}
+	</delete>
+	
+</mapper>

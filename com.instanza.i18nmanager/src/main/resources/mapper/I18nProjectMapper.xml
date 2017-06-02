@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.instanza.i18nmanager.mapper.I18nProjectMapper">
+
+    <select id="queryAll" resultType="com.instanza.i18nmanager.entity.I18nProject">
+        select * from i18n_project ORDER BY id DESC
+    </select>
+
+    <select id="queryById" parameterType="Long" resultType="com.instanza.i18nmanager.entity.I18nProject">
+        select * from i18n_project where id = #{item_id}
+    </select>
+
+
+    <insert id="addProject" parameterType="com.instanza.i18nmanager.entity.I18nProject" useGeneratedKeys="true" keyProperty="id">
+        insert into i18n_project
+        (
+            `created`,
+            `updated`,
+            `name`,
+            `type`,
+            `languages`
+        )
+        values
+        (
+            unix_timestamp()*1000,
+            unix_timestamp()*1000,
+            #{name},
+            #{type},
+            #{languages}
+        )
+    </insert>
+
+    <update id="updateProject" parameterType="Map">
+        update i18n_project
+        <set>
+            <if test="param.name != null">`name` = #{param.name},</if>
+            <if test="param.type != null">`type` = #{param.type},</if>
+            <if test="param.languages != null">`languages` = #{param.languages},</if>
+            updated = unix_timestamp()*1000
+        </set>
+        where id = #{param.id}
+    </update>
+
+
+    <delete id="deleteProject" parameterType="Long">
+        delete from i18n_project where id = #{item_id}
+    </delete>
+
+</mapper>

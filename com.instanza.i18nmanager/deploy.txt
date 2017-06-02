@@ -1,0 +1,4 @@
+
+mvn clean compile package -Dmaven.test.skip
+
+scp target/com.instanza.i18nmanager-0.0.1-SNAPSHOT.jar root@192.168.6.136:/home/i18nmanager/jars

@@ -1,0 +1,10 @@
+# common
+.DS_Store
+.idea
+# node dependencies
+node_modules
+npm-debug.log
+
+# build file
+build
+dist
